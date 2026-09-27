@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BRAND, MAIN_NAV, ROUTES } from "../_site/config";
+import { BRAND, lienDevis, MAIN_NAV, ROUTES } from "../_site/config";
+import { NavLink } from "./nav-link";
 
 export function SiteHeader() {
   return (
@@ -11,11 +12,14 @@ export function SiteHeader() {
         <ul>
           {MAIN_NAV.map((key) => (
             <li key={key}>
-              <Link href={ROUTES[key].path}>{ROUTES[key].label}</Link>
+              <NavLink href={ROUTES[key].path}>{ROUTES[key].label}</NavLink>
             </li>
           ))}
         </ul>
       </nav>
+      <p>
+        <NavLink href={lienDevis()}>Demander un devis</NavLink>
+      </p>
     </header>
   );
 }

@@ -1,0 +1,24 @@
+{
+  "_note": "Racines de mots interdits dans le texte livré (prompt 0, règle 5 : aucune allégation santé ou thérapeutique, y compris pour le hammam et le ghassoul). Recherche sans casse dans le texte des pages.",
+  "racines": [
+    "détox",
+    "detox",
+    "toxine",
+    "purifi",
+    "soign",
+    "anti-âge",
+    "anti-age",
+    "antiâge",
+    "thérapeutique",
+    "guéri",
+    "médicinal",
+    "cicatris",
+    "anti-inflammatoire",
+    "antibactérien",
+    "antiseptique",
+    "régénér",
+    "rajeuni",
+    "amincis",
+    "vertus"
+  ]
+}
