@@ -1,7 +1,7 @@
 // Vérifie le dossier de sortie du build du site B (lancé par « postbuild »).
 // 1. Aucun terme propre au site A (scripts/site-a-terms.json, plus un fichier privé facultatif
 //    désigné par SITE_B_FORBIDDEN_TERMS_FILE, pour les noms qui ne doivent pas être commités).
-// 2. Aucune feuille de style (prompt 0, règle 1).
+// 2. Aucune feuille de style (prompt 0, règle 1). Aucun exemple « EXEMPLE- » (prompt 2).
 // 3. Au plus un lien vers le site A par page.
 // 4. Facultatif : aucune image identique à une image du site A, si SITE_A_DIR est défini.
 import { createHash } from "node:crypto";
@@ -14,7 +14,7 @@ nextEnv.loadEnvConfig(root);
 
 const TEXT_EXT = new Set([".html", ".rsc", ".body", ".meta", ".txt", ".xml", ".js", ".json", ".css", ".map"]);
 const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".webp", ".avif", ".gif", ".svg", ".ico"]);
-const scanDirs = [".next/server/app", ".next/static", "public"].map((d) => join(root, d)).filter(existsSync);
+const scanDirs = [".next/server", ".next/static", "public"].map((d) => join(root, d)).filter(existsSync);
 
 function walk(dir) {
   return readdirSync(dir).flatMap((name) => {
@@ -39,6 +39,15 @@ for (const file of files) {
   lowered.forEach((term, i) => {
     if (content.includes(term)) errors.push(`terme du site A « ${terms[i]} » dans ${relative(root, file)}`);
   });
+}
+
+// 1 bis. Aucun exemple « EXEMPLE- » (prompt 2) dans le build de production.
+for (const file of files) {
+  // Données d'exemple (« EXEMPLE-riad », « EXEMPLE- Coopérative ») ; le préfixe seul, dans le
+  // code qui les filtre, est permis.
+  if (TEXT_EXT.has(extname(file)) && /EXEMPLE-(?:[a-z0-9]| [a-z0-9À-ÿ])/i.test(readFileSync(file, "utf8"))) {
+    errors.push(`exemple « EXEMPLE- » dans ${relative(root, file)}`);
+  }
 }
 
 // 2. Feuilles de style.
