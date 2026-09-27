@@ -1,6 +1,6 @@
 # Site B — produits finis (hôtels, spas, cadeaux) : plan de site
 
-*25 septembre 2026 · construit sur `../produits/13-plan-produits-finis-hotels.md` · marque B : **Maison Yousra** (retenue le 27 septembre 2026, à vérifier à l'OMPIC) · domaine à choisir · le site des ingrédients est décrit dans `04-plan-site-seo.md` (site A)*
+*25 septembre 2026 · construit sur `../produits/13-plan-produits-finis-hotels.md` · marque : **Maison Yousra** (retenue le 27 septembre 2026, à vérifier à l'OMPIC) · domaine à choisir · le site des ingrédients est décrit dans `04-plan-site-seo.md` (site A)*
 
 > **En bref :** un second site, sous une marque distincte, pour vendre des produits finis de coopératives marocaines avec un packaging au nom du client. Français à la racine, anglais ensuite. Six pages en janvier 2027 pour les hôtels pilotes, puis les pages coopératives et les guides.
 
@@ -161,7 +161,7 @@ Même méthode que le site A : volume, difficulté, top 10 actuel, une requête 
 
 ## 10. Décisions à prendre
 
-- [x] Le nom de la marque B : **Maison Yousra** (27 septembre 2026)
+- [x] Le nom de la marque : **Maison Yousra** (27 septembre 2026)
 - [ ] Vérifier le nom à l'OMPIC (classe 3) et choisir le domaine (.com + .ma)
 - [ ] Qui des deux associés porte le site B et les ventes terrain
 - [ ] Qui réalise les photos des produits et des coopératives, avec les autorisations écrites

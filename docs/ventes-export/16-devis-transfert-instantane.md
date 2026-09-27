@@ -116,7 +116,7 @@ Cinq champs sur mobile : prix, minimum, délai, validité, photo du lot. Le jeto
 ### Deux adresses d'envoi, pour l'anonymat
 
 - **achats@[domaine]** : pour tous les échanges avec les fournisseurs.
-- **devis@[domaine]** : pour les clients ; sur le site B, avec le domaine de la marque B (Maison Yousra).
+- **devis@[domaine]** : pour les clients ; sur le site B, avec le domaine de Maison Yousra.
 
 Deux alias du même compte connecté à Twenty (alias d'envoi disponibles depuis la version 2.35 [2]) : un fournisseur et un client ne reçoivent jamais un e-mail qui montrerait l'autre en copie ou dans l'historique.
 

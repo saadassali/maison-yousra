@@ -6,7 +6,7 @@
 > riads, spas et hammams, cadeaux, personnalisation, devis), plus les pages légales. Le
 > formulaire de devis avec les options de personnalisation (webhook W1), la maquette automatique
 > à partir du logo du client (fichier 16 §6.8) et la page du devis client (webhook W8) sous le
-> domaine de la marque B. Les fiches produits, les pages coopératives, les QR codes, la marque
+> domaine de Maison Yousra. Les fiches produits, les pages coopératives, les QR codes, la marque
 > blanche et l'anglais viendront en P2, dans le même dépôt.
 
 > **État au 27 septembre 2026** (`~/yousra-botanicals`, GitHub privé
@@ -33,7 +33,7 @@
 
 ## Avant de lancer l'agent
 
-1. **Prenez les décisions de `14` §10** : domaine de la marque B (Maison Yousra, à vérifier à l'OMPIC et en .com), l'associé qui porte le site B, qui fait les photos (avec autorisations écrites). L'agent utilisera `[domaine B]` en attendant.
+1. **Prenez les décisions de `14` §10** : domaine de Maison Yousra (nom à vérifier à l'OMPIC et en .com), l'associé qui porte le site B, qui fait les photos (avec autorisations écrites). L'agent utilisera `[domaine B]` en attendant.
 2. **Les modules du site A doivent exister** dans `~/yasmine-botanicals` : prompts 1, 4 et 6 du fichier 19 (`lib/twenty/`, `lib/seo/`, `lib/forms/`, `lib/legal/`, `lib/quote/`). Le site B est un dépôt séparé (`~/yousra-botanicals`, Next.js 16, documents dans `docs/`, bonnes pratiques dans `AGENTS.md`) : ces modules y sont **recopiés**, pas partagés. La page fournisseur « Répondre » (fichier 19, prompt 5) reste **sur le site A seulement** : les coopératives et le conditionneur y répondent depuis les e-mails envoyés par `achats@`, qui est déjà une adresse de la SARL. Il n'y a rien à refaire pour elle dans ce dépôt.
 3. **Dans Twenty** (fichier 18) : le conditionneur saisi comme société de type CONDITIONNEUR, avec sa grille de prix packaging ; les produits du site B (SITE_B ou LES_DEUX) ; l'alias `devis@[domaine B]` connecté. Tous les workflows restent inactifs jusqu'au prompt 7.
 4. **Préparez les gabarits de la maquette automatique** : une image de face, sans marque, de chaque contenant standard (flacon, recharge de 5 L, pot, boîte cadeau), avec la zone de l'étiquette. Sans eux, le prompt 5 livre le mécanisme avec des gabarits provisoires.
@@ -320,11 +320,11 @@ boîte) à son nom, affichée à la confirmation et jointe à la demande.
 
 ---
 
-## Prompt 6 — La page du devis client sous la marque B (webhook W8)
+## Prompt 6 — La page du devis client sous la marque Maison Yousra (webhook W8)
 
 ````text
 # Objectif
-La page publique du devis, sous le domaine de la marque B, à partir du module lib/quote/
+La page publique du devis, sous le domaine de Maison Yousra, à partir du module lib/quote/
 recopié du site A (fichier 19, prompt 6).
 
 # Tâches
