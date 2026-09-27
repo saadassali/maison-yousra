@@ -44,3 +44,6 @@ next-env.d.ts
 # ajouts
 !.env.example
 *.iml
+
+# Stockage local des logos et maquettes (développement)
+/.stockage/

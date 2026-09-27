@@ -69,6 +69,8 @@ export const produitSchema = z.object({
   personnalisations: ouACompleter(z.array(personnalisation).min(1)),
   minimumCommande: ouACompleter(texte),
   delai: ouACompleter(texte),
+  /** Identifiant du produit dans Twenty (objet product) : lie les lignes de devis et la fourchette. */
+  twentyId: z.uuid().optional(),
   /** Référence interne facultative : n'est affichée que pour un produit co-brandé autorisé. */
   cooperative: identifiant.optional(),
   /** « publie » n'est accepté que si la conformité est remplie et non expirée. */

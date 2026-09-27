@@ -16,8 +16,17 @@ un correctif se fait dans le site A, puis se recopie.
 
 Le dépôt du site A (commit `70b4633`) ne contient pas encore ces modules : ils seront créés par
 les prompts 1, 4 et 6 du fichier 19. En attendant, le site B utilise des équivalents
-**provisoires** propres à lui, dans `app/_site/` (`metadata.ts`, `json-ld.tsx`). Ils seront
-remplacés par `lib/seo/` à la copie.
+**provisoires** propres à lui, à remplacer à la copie :
+
+| Provisoire (site B) | Remplacé par |
+|---|---|
+| `app/_site/metadata.ts`, `app/_site/json-ld.tsx` | `lib/seo/` |
+| `app/_devis/schema.ts`, `turnstile.ts`, `envoi.ts` (W1, secours par e-mail) | `lib/forms/` |
+| `app/_devis/twenty.ts` (lecture des offres) | `lib/twenty/` |
+| `app/_devis/fourchette.ts` (formule de prix) | `lib/quote/` ou `lib/twenty/`, selon le site A |
+
+À la copie, comparer : le site A doit accepter en paramètres ce que le site B fixe ici (site
+SITE_B, devise MAD, segment, personnalisation, liens du logo et de la maquette).
 
 ## Recopier
 
