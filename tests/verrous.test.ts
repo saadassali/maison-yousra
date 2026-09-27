@@ -55,6 +55,8 @@ const photoSansPersonne = {
   fichier: "/photos/test.jpg",
   legende: "Test",
   alt: "Test",
+  largeur: 1200,
+  hauteur: 800,
   personnes: [],
   accordEcrit: false,
 } satisfies ContenuBrut["photos"][number];
@@ -98,6 +100,13 @@ describe("contenu valide", () => {
   it("ne publie aucun produit réel tant que les certificats ne sont pas saisis", () => {
     const c = validerContenu({ produits, cooperatives, realisations, photos }, options);
     expect(produitsAffichables(c, { apercu: false, aujourdhui })).toEqual([]);
+  });
+
+  it("montre les brouillons en aperçu, marqués comme tels", () => {
+    const c = validerContenu({ produits, cooperatives, realisations, photos }, options);
+    const apercu = produitsAffichables(c, { apercu: true, aujourdhui });
+    expect(apercu.length).toBe(produits.length);
+    expect(apercu.every((p) => p.apercu)).toBe(true);
   });
 
   it("retire les exemples EXEMPLE- en production et les garde en développement", () => {

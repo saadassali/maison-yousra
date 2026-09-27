@@ -107,6 +107,9 @@ export const photoSchema = z.object({
   legende: texte,
   /** Texte alternatif (accessibilité). */
   alt: texte,
+  /** Dimensions en pixels, pour réserver la place de l'image. */
+  largeur: z.number().int().positive(),
+  hauteur: z.number().int().positive(),
   /** Noms des personnes présentes, pour les citer. Vide : aucune personne sur la photo. */
   personnes: z.array(texte),
   accordEcrit: z.boolean(),

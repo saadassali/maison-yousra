@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ROUTES } from "./_site/config";
+import { BRAND, ROUTES } from "./_site/config";
+
+export const metadata: Metadata = {
+  title: { absolute: `Page introuvable | ${BRAND}` },
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

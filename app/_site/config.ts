@@ -39,13 +39,26 @@ export const ROUTES: Record<RouteKey, Route> = {
   confidentialite: { path: "/confidentialite/", label: "Confidentialité", indexable: true },
 };
 
-/** Menu principal (fichier 14 §7), limité aux pages P1. « Marque blanche » viendra en P2. */
-export const MAIN_NAV: RouteKey[] = [
-  "hotelsRiads",
-  "spasHammams",
-  "cadeaux",
-  "personnalisation",
-  "devis",
-];
+/**
+ * Menu principal (fichier 14 §7), limité aux pages P1. « Marque blanche » viendra en P2.
+ * Le devis est un lien d'action à part dans l'en-tête (canevas de design).
+ */
+export const MAIN_NAV: RouteKey[] = ["hotelsRiads", "spasHammams", "cadeaux", "personnalisation"];
 
 export const FOOTER_NAV: RouteKey[] = ["mentionsLegales", "confidentialite"];
+
+/** Segments du formulaire de devis (prompt 4), présélectionnés par la page d'origine. */
+export const SEGMENTS_DEVIS = {
+  hotel: "Hôtel ou riad",
+  spa: "Spa ou hammam",
+  entreprise: "Cadeaux d’entreprise",
+  mariage: "Mariage",
+  evenement: "Événement",
+  autre: "Autre",
+} as const;
+export type SegmentDevis = keyof typeof SEGMENTS_DEVIS;
+
+/** Lien vers le devis avec le segment présélectionné. */
+export function lienDevis(segment?: SegmentDevis): string {
+  return segment ? `${ROUTES.devis.path}?segment=${segment}` : ROUTES.devis.path;
+}

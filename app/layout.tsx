@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { BRAND, DEFAULT_LOCALE } from "./_site/config";
+import { BRAND, DEFAULT_LOCALE, ROUTES } from "./_site/config";
 import { siteUrl } from "./_site/env";
 import { JsonLd, organizationLd } from "./_site/json-ld";
 import { SiteHeader } from "./_components/site-header";
 import { SiteFooter } from "./_components/site-footer";
 import { contenu } from "./_content";
+import { BanniereCookies } from "./_components/banniere-cookies";
 
 export function generateMetadata(): Metadata {
   return {
@@ -23,6 +24,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        {process.env.NEXT_PUBLIC_MESURE_AUDIENCE ? (
+          <BanniereCookies lienConfidentialite={ROUTES.confidentialite.path} />
+        ) : null}
       </body>
     </html>
   );

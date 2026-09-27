@@ -31,3 +31,19 @@ for (const fichier of liste) {
   for (const m of trouves) console.log(`  ${m}`);
 }
 console.log(`\n${total} marqueur(s) distinct(s) par fichier.`);
+
+// Marqueurs visibles par page, d'après le dernier build (prompt 3 : liste par page).
+const pagesDir = join(root, ".next/server/app");
+let pagesHtml = [];
+try { pagesHtml = walk(pagesDir).filter((f) => f.endsWith(".html")); } catch { /* pas de build */ }
+if (pagesHtml.length) {
+  console.log("\n--- Par page (dernier build) ---");
+  for (const fichier of pagesHtml.sort()) {
+    const texte = readFileSync(fichier, "utf8").replace(/<script[\s\S]*?<\/script>/g, " ");
+    const trouves = [...new Set(texte.match(MARQUEUR) ?? [])];
+    if (!trouves.length) continue;
+    const route = "/" + relative(pagesDir, fichier).replace(/(index)?\.html$/, "").replace(/\/?$/, "/").replace(/^\/$/, "");
+    console.log(`\n${route || "/"}`);
+    for (const m of trouves) console.log(`  ${m}`);
+  }
+}

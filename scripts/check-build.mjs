@@ -3,6 +3,8 @@
 //    désigné par SITE_B_FORBIDDEN_TERMS_FILE, pour les noms qui ne doivent pas être commités).
 // 2. Aucune feuille de style (prompt 0, règle 1). Aucun exemple « EXEMPLE- » (prompt 2).
 // 3. Au plus un lien vers le site A par page.
+// 5. Allégations santé (scripts/allegations-interdites.json) ; un h1, un title et une meta
+//    description par page.
 // 4. Facultatif : aucune image identique à une image du site A, si SITE_A_DIR est défini.
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
@@ -50,6 +52,35 @@ for (const file of files) {
   }
 }
 
+// 1 ter. Allégations santé interdites, dans le texte des pages livrées (sans balises ni scripts).
+const racines = JSON.parse(readFileSync(join(root, "scripts/allegations-interdites.json"), "utf8")).racines;
+const pages = files.filter((f) => f.startsWith(join(root, ".next/server/app")) && extname(f) === ".html");
+const texteDe = (html) =>
+  html
+    .replace(/<script[\s\S]*?<\/script>/g, " ")
+    .replace(/<style[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .toLowerCase();
+for (const file of pages) {
+  const texte = texteDe(readFileSync(file, "utf8"));
+  for (const racine of racines) {
+    if (texte.includes(racine.toLowerCase())) errors.push(`allégation interdite « ${racine} » dans ${relative(root, file)}`);
+  }
+}
+
+// 1 quater. Chaque page : un seul h1, un title, une meta description (prompt 3).
+for (const file of pages) {
+  const nom = relative(join(root, ".next/server/app"), file);
+  if (nom.startsWith("_global-error")) continue;
+  const html = readFileSync(file, "utf8");
+  const h1 = (html.match(/<h1[\s>]/g) ?? []).length;
+  if (h1 !== 1) errors.push(`${h1} h1 dans ${nom}`);
+  if (!/<title>[^<]+<\/title>/.test(html)) errors.push(`pas de title dans ${nom}`);
+  if (!nom.startsWith("_not-found") && !/<meta name="description" content="[^"]+"/.test(html)) {
+    errors.push(`pas de meta description dans ${nom}`);
+  }
+}
+
 // 2. Feuilles de style.
 for (const file of files) {
   if (extname(file) === ".css") errors.push(`feuille de style : ${relative(root, file)}`);
@@ -82,4 +113,6 @@ if (errors.length) {
   console.error(`Vérification du build : ${errors.length} erreur(s)\n- ${errors.join("\n- ")}`);
   process.exit(1);
 }
-console.log(`Vérification du build : ${files.length} fichiers, aucun contenu du site A, aucune feuille de style.`);
+console.log(
+  `Vérification du build : ${files.length} fichiers, aucun contenu du site A, aucune allégation interdite, aucune feuille de style, un h1 par page.`,
+);
