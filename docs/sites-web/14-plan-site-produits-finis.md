@@ -140,7 +140,7 @@ Même méthode que le site A : volume, difficulté, top 10 actuel, une requête 
 
 ## 8. Technique et mesure
 
-- **Même socle que le site A** (`04` §7 et §12) : Next.js, Cloudflare, dans un dépôt séparé (`yousra-botanicals`), avec les modules `lib/` recopiés du site A.
+- **Même socle que le site A** (`04` §7 et §12) : Next.js, Cloudflare, dans un dépôt séparé (`yousra-botanicals`, privé sur GitHub), avec les modules `lib/` recopiés du site A (`yasmine-botanicals`, Yasmina Botanicals). Hébergement : le même que le site A, OpenNext pour Cloudflare.
 - **Formulaire de devis** : segment, produits, quantités, personnalisation (logo, couleurs, langue), date souhaitée, ville ; champs cachés pour la page d'origine et la source (QR code, eTrade.ma, salon, recherche).
 - **QR codes** : une URL par coopérative et par client, avec un paramètre de suivi, pour savoir quels distributeurs et quels coffrets font venir des visiteurs.
 - **Mesure mensuelle** : devis par segment et par source ; taux de réassort des hôtels ; ventes de la boutique en dépôt-vente, s'il y en a.

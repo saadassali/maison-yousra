@@ -8,6 +8,11 @@
 > « Répondre » des fournisseurs (webhook W5, grille du lundi W10) et la page du devis client
 > (webhook W8). Les pages P2 et P3 viendront plus tard, sur le même socle.
 
+> **État au 27 septembre 2026** (`~/yasmine-botanicals`, GitHub privé
+> `saadassali/yasmine-botanicals`) : prompts 1 à 4 et passe de design faits et fusionnés. Prochain :
+> prompt 5. Hébergement retenu : OpenNext pour Cloudflare (`@opennextjs/cloudflare`), à installer
+> au déploiement. Points à aligner avec le site B : `../README.md`, « Les deux sites ».
+
 ---
 
 ## Avant de lancer l'agent

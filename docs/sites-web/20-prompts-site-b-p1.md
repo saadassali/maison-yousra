@@ -9,6 +9,12 @@
 > domaine de la marque B. Les fiches produits, les pages coopératives, les QR codes, la marque
 > blanche et l'anglais viendront en P2, dans le même dépôt.
 
+> **État au 27 septembre 2026** (`~/yousra-botanicals`, GitHub privé
+> `saadassali/yousra-botanicals`) : prompts 1 à 4 et passe de design faits et fusionnés. Prochain :
+> prompt 5. Les modules `lib/` du site A ne sont pas encore recopiés : le site B utilise des
+> équivalents provisoires, listés dans son `lib/SOURCE.md`. Points à aligner avec le site A :
+> `../README.md`, « Les deux sites ».
+
 ---
 
 ## Ce qui change par rapport au site A
