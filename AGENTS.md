@@ -55,7 +55,7 @@ Chaque site a son propre dépôt (`~/yasmine-botanicals`, `~/yousra-botanicals`)
 - **TypeScript strict**, sans `any` ni `@ts-ignore`. Les données qui viennent de l'extérieur (formulaire, webhook, Twenty) sont validées côté serveur avec un schéma avant usage.
 - **Secrets** : dans `.env.local` (jamais commité). Chaque variable nouvelle est ajoutée, sans valeur, à `.env.example`. Le client Twenty et tout code qui lit un secret importent `server-only`. Aucune variable secrète en `NEXT_PUBLIC_`.
 - **Formulaires** : Server Actions ou route handlers, validation côté serveur, Cloudflare Turnstile vérifié côté serveur, champ piège, messages d'erreur accessibles. Ne jamais faire confiance à la validation côté navigateur seule.
-- **Pas de style tant que le design n'est pas validé** (prompt 0, règle 1) : Tailwind est installé mais on ne s'en sert pas encore ; HTML sémantique seulement.
+- **Style** : le design du canevas [Site B — Design](https://claude.ai/artifact/YXHCRxkacB3xRA8Zno5sQB) est appliqué depuis la passe de design (branche `design-passe-1`), ce qui lève la règle 1 du prompt 0 pour ce dépôt. Tailwind v4 ; jetons (couleurs, polices, arche) dans `app/globals.css`, un seul endroit. Le HTML reste sémantique et accessible.
 - **Accessibilité** : un seul `h1` par page, titres hiérarchisés, `label` sur chaque champ, `alt` sur chaque image, navigation au clavier, attribut `lang` correct sur `<html>`.
 - **SEO technique** : métadonnées via l'API `metadata` / `generateMetadata`, canonical auto-référent, `sitemap.ts` et `robots.ts` dans `app/`, JSON-LD rendu côté serveur, slash final partout.
 - **Contenu** : aucune donnée inventée ; ce qui manque s'écrit `[À COMPLÉTER : …]` et reste listé.

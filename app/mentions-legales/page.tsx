@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb } from "../_components/breadcrumb";
+import { EnTete } from "../_components/en-tete";
 import { BRAND, COMPANY_NAME, ROUTES } from "../_site/config";
 import { pageMetadata } from "../_site/metadata";
 
@@ -12,8 +12,9 @@ export const metadata = pageMetadata({
 export default function MentionsLegalesPage() {
   return (
     <>
-      <Breadcrumb page="mentionsLegales" />
-      <h1>Mentions légales</h1>
+      <EnTete page="mentionsLegales" titre="Mentions légales" />
+      <div className="cadre pb-20 md:pb-28">
+        <div className="texte-long">
 
       <section aria-labelledby="editeur">
         <h2 id="editeur">Éditeur du site</h2>
@@ -60,6 +61,8 @@ export default function MentionsLegalesPage() {
           <Link href={ROUTES.confidentialite.path}>politique de confidentialité</Link>.
         </p>
       </section>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,10 +1,10 @@
-import { Breadcrumb } from "../_components/breadcrumb";
+import { BlocOffre, EnTete, SectionOffre } from "../_components/en-tete";
+import { Pot } from "../_components/illustrations";
 import {
-  EngagementEnregistrement,
-  Preuves,
-  ProduitsEnregistres,
+  BarreDevisMobile,
   SectionCommentCaMarche,
   SectionDevis,
+  SectionPreuves,
 } from "../_components/sections";
 import { ROUTES } from "../_site/config";
 import { pageMetadata } from "../_site/metadata";
@@ -21,44 +21,42 @@ export const metadata = pageMetadata({
 export default function SpasHammamsPage() {
   return (
     <>
-      <Breadcrumb page="spasHammams" />
+      <EnTete
+        page="spasHammams"
+        titre="Un rituel de hammam à mettre à la carte : les produits, le protocole et la formation."
+        chapeau="Un kit professionnel en grands formats, fabriqué par des coopératives marocaines et étiqueté au nom de votre spa, avec tout ce qu’il faut pour que vos thérapeutes le pratiquent de la même façon."
+        dessin={<Pot />}
+      />
 
-      <h1>Un rituel de hammam à mettre à la carte : les produits, le protocole et la formation.</h1>
-      <p>
-        Un kit professionnel en grands formats, fabriqué par des coopératives marocaines et
-        étiqueté au nom de votre spa, avec tout ce qu’il faut pour que vos thérapeutes le
-        pratiquent de la même façon.
-      </p>
+      <SectionOffre>
+        <BlocOffre titre="Le kit rituel en grands formats">
+          <p>
+            Savon noir, ghassoul et huile d’argan en conditionnements professionnels de 1 à 5 kg,
+            avec le gant de kessa.
+          </p>
+        </BlocOffre>
+        <BlocOffre titre="Le protocole et la formation">
+          <dl className="fiche">
+            <dt>Protocole</dt>
+            <dd>[À COMPLÉTER : protocole du rituel, étape par étape]</dd>
+            <dt>Vidéo</dt>
+            <dd>[À COMPLÉTER : vidéo de formation pour les thérapeutes]</dd>
+          </dl>
+        </BlocOffre>
+        <BlocOffre titre="Le déroulé et les fiches clients">
+          <dl className="fiche">
+            <dt>Déroulé</dt>
+            <dd>[À COMPLÉTER : déroulé du rituel (gestes, ordre, durée de chaque étape)]</dd>
+            <dt>Fiches</dt>
+            <dd>[À COMPLÉTER : fiches remises aux clients du spa]</dd>
+          </dl>
+        </BlocOffre>
+      </SectionOffre>
 
-      <section aria-labelledby="offre">
-        <h2 id="offre">L’offre</h2>
-
-        <h3>Le kit rituel en grands formats</h3>
-        <p>Savon noir, ghassoul et huile d’argan en conditionnements professionnels de 1 à 5 kg, avec le gant de kessa.</p>
-
-        <h3>Ce qui accompagne le kit</h3>
-        <dl>
-          <dt>Protocole écrit</dt>
-          <dd>[À COMPLÉTER : protocole du rituel, étape par étape]</dd>
-          <dt>Vidéo de formation pour les thérapeutes</dt>
-          <dd>[À COMPLÉTER : vidéo de formation]</dd>
-          <dt>Déroulé du rituel</dt>
-          <dd>[À COMPLÉTER : déroulé du rituel (gestes, ordre, durée de chaque étape)]</dd>
-          <dt>Fiches clients</dt>
-          <dd>[À COMPLÉTER : fiches remises aux clients du spa]</dd>
-        </dl>
-      </section>
-
-      <section aria-labelledby="preuves">
-        <h2 id="preuves">Les preuves</h2>
-        <EngagementEnregistrement />
-        <ProduitsEnregistres segment="spas" />
-        <Preuves segment="spas" />
-      </section>
-
+      <SectionPreuves segment="spas" />
       <SectionCommentCaMarche />
-
       <SectionDevis segment="spa" libelle="Demander un devis pour un spa ou un hammam" />
+      <BarreDevisMobile segment="spa" />
     </>
   );
 }

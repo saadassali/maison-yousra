@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* Design du site B, d'après le canevas « Site B — Design » (direction v1, 26 septembre 2026).
+   Enduit chaud comme un tadelakt, indigo pour les actions, safran pour les mises en avant,
+   l'arche comme forme récurrente. Distinct du site A. */
+
+@theme {
+  --color-enduit: #f3ece2; /* fond */
+  --color-lin: #fbf7f1; /* cartes, champs */
+  --color-cedre: #2a211c; /* texte, bandeaux */
+  --color-indigo: #27366b; /* actions, liens */
+  --color-indigo-fonce: #1a2550;
+  --color-safran: #d9a441; /* aplats, texte cèdre dessus, jamais blanc */
+  --color-argile: #e8d9c4; /* sections alternées */
+  --color-encre: #45382f; /* texte courant secondaire */
+  --color-sourdine: #6a5d53; /* petit texte, étiquettes */
+  --color-trait: #dccfbf; /* filets */
+  --color-sable: #d8ccbd; /* texte sur fond cèdre */
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-work-sans), system-ui, sans-serif;
+
+  --radius-arche: 999px 999px 6px 6px;
+}
+
+/* Étiquette de données : capitales espacées, réservées aux libellés (minimum, délai…). */
+@utility etiquette {
+  @apply text-[12px] font-semibold uppercase tracking-[0.14em] text-sourdine;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 1rem;
+  }
+  body {
+    @apply bg-enduit text-cedre font-sans text-[17px] leading-relaxed antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-light text-balance;
+    font-variation-settings: "opsz" 96;
+  }
+  a {
+    @apply text-indigo underline-offset-4 hover:text-indigo-fonce;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-indigo;
+  }
+  ::selection {
+    @apply bg-safran text-cedre;
+  }
+}
+
+@layer components {
+  /* Conteneur : 1200 px au plus, gouttière de 16 px sur mobile. */
+  .cadre {
+    @apply mx-auto w-full max-w-[1232px] px-4 md:px-8 xl:px-4;
+  }
+
+  .titre-page {
+    @apply text-[40px] leading-[1.04] tracking-[-0.015em] md:text-[64px];
+  }
+  .titre-section {
+    @apply text-[32px] leading-[1.08] md:text-[44px];
+  }
+  .titre-bloc {
+    @apply text-[24px] leading-tight md:text-[28px];
+  }
+  .chapeau {
+    @apply max-w-[36em] text-[17px] leading-relaxed text-encre md:text-[19px];
+  }
+
+  .bouton {
+    @apply inline-flex min-h-[50px] items-center justify-center rounded-full bg-indigo px-6 text-[15px] font-semibold text-lin no-underline transition-colors hover:bg-indigo-fonce hover:text-lin;
+  }
+  .bouton-contour {
+    @apply inline-flex min-h-[50px] items-center justify-center rounded-full border border-cedre px-6 text-[15px] font-medium text-cedre no-underline transition-colors hover:bg-cedre hover:text-enduit;
+  }
+  .bouton-safran {
+    @apply inline-flex min-h-[54px] items-center justify-center rounded-full bg-safran px-7 text-[16px] font-semibold text-cedre no-underline hover:bg-lin hover:text-cedre;
+  }
+
+  .arche {
+    border-radius: var(--radius-arche);
+    @apply bg-argile;
+  }
+
+  /* Fiche de données : libellé en capitales, valeur en regard. */
+  .fiche {
+    @apply grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-[14px];
+  }
+  .fiche dt {
+    @apply etiquette pt-[3px] text-[11px];
+  }
+  .fiche dd {
+    @apply m-0;
+  }
+
+  /* Texte long (pages légales). */
+  .texte-long {
+    @apply max-w-[68ch] text-[16px] leading-[1.7] text-encre;
+  }
+  .texte-long h2 {
+    @apply mt-12 mb-4 text-[28px] text-cedre md:text-[32px];
+  }
+  .texte-long p,
+  .texte-long ul,
+  .texte-long dl {
+    @apply mb-4;
+  }
+  .texte-long ul {
+    @apply list-disc pl-5;
+  }
+  .texte-long li {
+    @apply mb-1;
+  }
+  .texte-long dl {
+    @apply grid gap-x-6 gap-y-3 sm:grid-cols-[minmax(0,16em)_1fr];
+  }
+  .texte-long dt {
+    @apply font-semibold text-cedre;
+  }
+  .texte-long dd {
+    @apply m-0;
+  }
+}

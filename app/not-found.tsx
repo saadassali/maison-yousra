@@ -9,11 +9,12 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <>
-      <h1>Page introuvable</h1>
-      <p>
-        Cette page n’existe pas. <Link href={ROUTES.accueil.path}>Retour à l’accueil</Link>
-      </p>
-    </>
+    <section className="cadre flex flex-col items-start gap-6 py-20 md:py-32">
+      <h1 className="titre-page">Page introuvable</h1>
+      <p className="chapeau">Cette page n’existe pas ou a changé d’adresse.</p>
+      <Link href={ROUTES.accueil.path} className="bouton">
+        Retour à l’accueil
+      </Link>
+    </section>
   );
 }
