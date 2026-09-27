@@ -1,6 +1,6 @@
 # Prompts pour un agent de code — site B, pages P1 et circuit des devis
 
-*26 septembre 2026 · construit le site B décrit dans `14-plan-site-produits-finis.md` (pages P1, lancement en janvier 2027 pour les hôtels pilotes) · offre tirée de `../produits/13-plan-produits-finis-hotels.md` · branché sur Twenty selon `../ventes-export/16-devis-transfert-instantane.md` · dans son propre dépôt `yousra-botanicals`, reprend les modules `lib/` construits avec `19-prompts-site-a-p1.md` · aucune consigne de style : le design se fera à part, d'après le canevas [Site B — Design](https://claude.ai/artifact/YXHCRxkacB3xRA8Zno5sQB)*
+*26 septembre 2026 · construit le site B décrit dans `14-plan-site-produits-finis.md` (pages P1, lancement en janvier 2027 pour les hôtels pilotes) · offre tirée de `../produits/13-plan-produits-finis-hotels.md` · branché sur Twenty selon `../ventes-export/16-devis-transfert-instantane.md` · dans son propre dépôt `maison-yousra`, reprend les modules `lib/` construits avec `19-prompts-site-a-p1.md` · aucune consigne de style : le design se fera à part, d'après le canevas [Site B — Design](https://claude.ai/artifact/YXHCRxkacB3xRA8Zno5sQB)*
 
 > **Ce que couvrent ces prompts.** Les six pages P1 du site B, en français (accueil, hôtels et
 > riads, spas et hammams, cadeaux, personnalisation, devis), plus les pages légales. Le
@@ -9,8 +9,8 @@
 > domaine de Maison Yousra. Les fiches produits, les pages coopératives, les QR codes, la marque
 > blanche et l'anglais viendront en P2, dans le même dépôt.
 
-> **État au 27 septembre 2026** (`~/yousra-botanicals`, GitHub privé
-> `saadassali/yousra-botanicals`) : prompts 1 à 4 et passe de design faits et fusionnés. Prochain :
+> **État au 27 septembre 2026** (`~/maison-yousra`, GitHub privé
+> `saadassali/maison-yousra`) : prompts 1 à 4 et passe de design faits et fusionnés. Prochain :
 > prompt 5. Les modules `lib/` du site A ne sont pas encore recopiés : le site B utilise des
 > équivalents provisoires, listés dans son `lib/SOURCE.md`. Points à aligner avec le site A :
 > `../README.md`, « Les deux sites ».
@@ -26,7 +26,7 @@
 | Fournisseurs | Jamais nommés | Coopératives **mises en avant**, avec leur accord écrit, seulement pour un produit fini co-brandé et **jamais** si elles fournissent le site A |
 | Conditionneur | — | **Jamais nommé** : c'est le savoir-faire de la SARL |
 | Condition de publication | Checklist du plan §5 | Produit **enregistré au ministère de la Santé** (DMP) ou conditionné par un établissement **autorisé par l'ONSSA** (14 §3) |
-| Dépôt de code | `yasmine-botanicals` | `yousra-botanicals`, séparé ; modules `lib/` recopiés du site A |
+| Dépôt de code | `yasmina-botanicals` | `maison-yousra`, séparé ; modules `lib/` recopiés du site A |
 | Demande de devis | Spécification, volume, usage | Segment, produits, quantités, **personnalisation** (logo, couleurs, langue, texte), date, ville |
 
 ---
@@ -34,7 +34,7 @@
 ## Avant de lancer l'agent
 
 1. **Prenez les décisions de `14` §10** : domaine de Maison Yousra (nom à vérifier à l'OMPIC et en .com), l'associé qui porte le site B, qui fait les photos (avec autorisations écrites). L'agent utilisera `[domaine B]` en attendant.
-2. **Les modules du site A doivent exister** dans `~/yasmine-botanicals` : prompts 1, 4 et 6 du fichier 19 (`lib/twenty/`, `lib/seo/`, `lib/forms/`, `lib/legal/`, `lib/quote/`). Le site B est un dépôt séparé (`~/yousra-botanicals`, Next.js 16, documents dans `docs/`, bonnes pratiques dans `AGENTS.md`) : ces modules y sont **recopiés**, pas partagés. La page fournisseur « Répondre » (fichier 19, prompt 5) reste **sur le site A seulement** : les coopératives et le conditionneur y répondent depuis les e-mails envoyés par `achats@`, qui est déjà une adresse de la SARL. Il n'y a rien à refaire pour elle dans ce dépôt.
+2. **Les modules du site A doivent exister** dans `~/yasmina-botanicals` : prompts 1, 4 et 6 du fichier 19 (`lib/twenty/`, `lib/seo/`, `lib/forms/`, `lib/legal/`, `lib/quote/`). Le site B est un dépôt séparé (`~/maison-yousra`, Next.js 16, documents dans `docs/`, bonnes pratiques dans `AGENTS.md`) : ces modules y sont **recopiés**, pas partagés. La page fournisseur « Répondre » (fichier 19, prompt 5) reste **sur le site A seulement** : les coopératives et le conditionneur y répondent depuis les e-mails envoyés par `achats@`, qui est déjà une adresse de la SARL. Il n'y a rien à refaire pour elle dans ce dépôt.
 3. **Dans Twenty** (fichier 18) : le conditionneur saisi comme société de type CONDITIONNEUR, avec sa grille de prix packaging ; les produits du site B (SITE_B ou LES_DEUX) ; l'alias `devis@[domaine B]` connecté. Tous les workflows restent inactifs jusqu'au prompt 7.
 4. **Préparez les gabarits de la maquette automatique** : une image de face, sans marque, de chaque contenant standard (flacon, recharge de 5 L, pot, boîte cadeau), avec la zone de l'étiquette. Sans eux, le prompt 5 livre le mécanisme avec des gabarits provisoires.
 5. **Joignez à l'agent** (déjà dans `docs/`) : `14-plan-site-produits-finis.md`, `../produits/13-plan-produits-finis-hotels.md`, `../ventes-export/16-devis-transfert-instantane.md`, `../ventes-export/18-prompt-agent-twenty-mcp.md`, `19-prompts-site-a-p1.md`, `../produits/11-controle-qualite-avant-expedition.md` et `../annexes/C-modeles-documents.md`.
@@ -50,7 +50,7 @@
 Tu es développeur web. Tu construis le site B d'une SARL marocaine : une marque distincte,
 Maison Yousra, qui vend des produits finis de coopératives marocaines avec un packaging au nom du
 client (hôtels et riads, spas et hammams, cadeaux d'entreprise et de mariage). Le site A de la
-même SARL (ingrédients B2B) est dans un autre dépôt (yasmine-botanicals) : tu n'y touches
+même SARL (ingrédients B2B) est dans un autre dépôt (yasmina-botanicals) : tu n'y touches
 pas, tu en recopies seulement les modules de lib/. Les fichiers joints sont ta
 référence : le fichier 14 est le plan du site, le fichier 13 l'offre, le fichier 16 le circuit
 des devis, le fichier 19 les prompts du site A.
@@ -96,11 +96,11 @@ des devis, le fichier 19 les prompts du site A.
 
 ````text
 # Objectif
-Créer le socle du site B dans le projet Next.js 16 de ce dossier (yousra-botanicals), en
+Créer le socle du site B dans le projet Next.js 16 de ce dossier (maison-yousra), en
 recopiant les modules du site A, sans contenu définitif.
 
 # Tâches
-1. Recopie depuis ../yasmine-botanicals les modules lib/twenty/, lib/seo/, lib/forms/,
+1. Recopie depuis ../yasmina-botanicals les modules lib/twenty/, lib/seo/, lib/forms/,
    lib/legal/ et lib/quote/, sans les modifier, et note dans lib/SOURCE.md le commit du
    site A d'où ils viennent. Ce qui est propre au site B reste dans app/. Si un module
    suppose le site A (langue par défaut, marque, adresse e-mail), ne le modifie pas ici :

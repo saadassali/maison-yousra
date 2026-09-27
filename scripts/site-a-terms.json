@@ -2,7 +2,7 @@
   "_note": "Termes propres au site A qui ne doivent jamais apparaître dans le build du site B. Ajouter ici les noms des fournisseurs du site A et des conditionneurs (prompt 7), sans les commiter s'ils sont confidentiels : voir SITE_B_FORBIDDEN_TERMS_FILE.",
   "terms": [
     "Yasmina",
-    "yasmine-botanicals",
+    "yasmina-botanicals",
     "prickly pear",
     "cosmetic-ingredients",
     "request-a-quote",

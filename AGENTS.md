@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Maison Yousra — site B
 
-Site de la marque **Maison Yousra**, d'une SARL marocaine. Plan : `docs/sites-web/14-plan-site-produits-finis.md`. L'autre marque de la SARL est Yasmina Botanicals (`~/yasmine-botanicals`) : deux sites distincts, liés seulement en pied de page.
+Site de la marque **Maison Yousra**, d'une SARL marocaine. Plan : `docs/sites-web/14-plan-site-produits-finis.md`. L'autre marque de la SARL est Yasmina Botanicals (`~/yasmina-botanicals`) : deux sites distincts, liés seulement en pied de page.
 
 ## Documents de référence (`docs/`)
 
@@ -42,7 +42,7 @@ Site de la marque **Maison Yousra**, d'une SARL marocaine. Plan : `docs/sites-we
 
 ## Deux dépôts séparés
 
-Chaque site a son propre dépôt (`~/yasmine-botanicals`, `~/yousra-botanicals`), comme le prévoient les prompts.
+Chaque site a son propre dépôt (`~/yasmina-botanicals`, `~/maison-yousra`), comme le prévoient les prompts.
 
 - Le code commun vit dans `lib/twenty/`, `lib/seo/`, `lib/forms/`, `lib/legal/` et `lib/quote/`, **indépendant de la marque** : marque, langue, domaine, devise et adresses e-mail passent par paramètres. Ces modules n'importent rien de `app/`.
 - **Le site A est la source** de ces modules. Le site B les recopie tels quels et note le commit d'origine dans `lib/SOURCE.md`. Un correctif se fait dans le site A, puis se recopie dans le site B.

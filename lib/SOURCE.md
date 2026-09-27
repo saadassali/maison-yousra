@@ -1,7 +1,7 @@
 # Origine des modules de `lib/`
 
 Les modules `lib/twenty/`, `lib/seo/`, `lib/forms/`, `lib/legal/` et `lib/quote/` sont **recopiés
-tels quels** depuis le dépôt du site A (`~/yasmine-botanicals`). On ne les modifie jamais ici :
+tels quels** depuis le dépôt du site A (`~/yasmina-botanicals`). On ne les modifie jamais ici :
 un correctif se fait dans le site A, puis se recopie.
 
 | Module | Commit du site A | Date de la copie |
@@ -31,7 +31,7 @@ SITE_B, devise MAD, segment, personnalisation, liens du logo et de la maquette).
 ## Recopier
 
 ```bash
-SITE_A=~/yasmine-botanicals
+SITE_A=~/yasmina-botanicals
 for m in twenty seo forms legal quote; do
   rm -rf lib/$m && cp -R "$SITE_A/lib/$m" lib/$m
 done

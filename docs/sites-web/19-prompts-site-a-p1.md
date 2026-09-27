@@ -1,6 +1,6 @@
 # Prompts pour un agent de code — site A, pages P1 et circuit des devis
 
-*26 septembre 2026 · construit le site A (Yasmina Botanicals) décrit dans `04-plan-site-seo.md` (pages P1, lancement en novembre 2026), dans son propre dépôt `yasmine-botanicals` · branche le site sur Twenty selon `../ventes-export/16-devis-transfert-instantane.md` · objets Twenty créés par `../ventes-export/18-prompt-agent-twenty-mcp.md` · aucune consigne de style : le design se fera à part, d'après le canevas [Site A — Design](https://claude.ai/artifact/1wfN5duV5ToeZzLbdtjDvn)*
+*26 septembre 2026 · construit le site A (Yasmina Botanicals) décrit dans `04-plan-site-seo.md` (pages P1, lancement en novembre 2026), dans son propre dépôt `yasmina-botanicals` · branche le site sur Twenty selon `../ventes-export/16-devis-transfert-instantane.md` · objets Twenty créés par `../ventes-export/18-prompt-agent-twenty-mcp.md` · aucune consigne de style : le design se fera à part, d'après le canevas [Site A — Design](https://claude.ai/artifact/1wfN5duV5ToeZzLbdtjDvn)*
 
 > **Ce que couvrent ces prompts.** Les six pages P1 du site A (accueil, fiche figue de barbarie,
 > qualité, conditions, à propos, demande de devis), en anglais et en français, plus les pages
@@ -8,8 +8,8 @@
 > « Répondre » des fournisseurs (webhook W5, grille du lundi W10) et la page du devis client
 > (webhook W8). Les pages P2 et P3 viendront plus tard, sur le même socle.
 
-> **État au 27 septembre 2026** (`~/yasmine-botanicals`, GitHub privé
-> `saadassali/yasmine-botanicals`) : prompts 1 à 4 et passe de design faits et fusionnés. Prochain :
+> **État au 27 septembre 2026** (`~/yasmina-botanicals`, GitHub privé
+> `saadassali/yasmina-botanicals`) : prompts 1 à 4 et passe de design faits et fusionnés. Prochain :
 > prompt 5. Hébergement retenu : OpenNext pour Cloudflare (`@opennextjs/cloudflare`), à installer
 > au déploiement. Points à aligner avec le site B : `../README.md`, « Les deux sites ».
 
@@ -23,7 +23,7 @@
 2. **Préparez un espace Twenty de test** configuré avec le fichier 18 : URL des webhooks W1, W5,
    W8 et W10, et une clé d'API **limitée en lecture** aux objets `supplierOffer`,
    `supplierConsultation` et `quote`. Tous les workflows restent inactifs jusqu'au prompt 7.
-3. **Le projet existe déjà** : `~/yasmine-botanicals`, un projet Next.js 16 (App Router, TypeScript, Tailwind installé mais inutilisé). Les fichiers ci-dessous y sont copiés dans `docs/`, et `AGENTS.md` porte les bonnes pratiques. Le site B a **son propre dépôt** (`~/yousra-botanicals`) : il recopiera les modules de `lib/` construits ici.
+3. **Le projet existe déjà** : `~/yasmina-botanicals`, un projet Next.js 16 (App Router, TypeScript, Tailwind installé mais inutilisé). Les fichiers ci-dessous y sont copiés dans `docs/`, et `AGENTS.md` porte les bonnes pratiques. Le site B a **son propre dépôt** (`~/maison-yousra`) : il recopiera les modules de `lib/` construits ici.
 4. **Joignez à l'agent** (déjà dans `docs/`) : `04-plan-site-seo.md`, `../plan/01-plan-operationnel.md` (§2.2, §3.5,
    §6, §7, §10), `../plan/02-guide-lancement.md` (§1.7), `../produits/10-produits-regions-prix.md`
    (§2.2), `../produits/11-controle-qualite-avant-expedition.md`,
@@ -82,7 +82,7 @@ fichier 04 est le plan du site, le fichier 16 le circuit des devis.
 Créer le socle du site A, sans contenu définitif : structure, langues, SEO technique, pages vides.
 
 # Tâches
-1. Dépôt : le projet Next.js 16 existant de ce dossier (yasmine-botanicals). Pas de monorepo :
+1. Dépôt : le projet Next.js 16 existant de ce dossier (yasmina-botanicals). Pas de monorepo :
    le site B a son propre dépôt et rien ici ne dépend de lui. Le code que le site B reprendra
    va dans des modules indépendants de la marque : lib/twenty/, lib/seo/, lib/forms/, lib/legal/, lib/quote/.
    Ils ne lisent la marque, la langue, le domaine, la devise et les adresses e-mail que par
