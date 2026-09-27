@@ -1,0 +1,30 @@
+{
+  "produits": [],
+  "cooperatives": [
+    {
+      "id": "EXEMPLE-cooperative",
+      "nom": "EXEMPLE- Coopérative fictive",
+      "region": "[À COMPLÉTER : région]",
+      "nombreMembres": "[À COMPLÉTER : nombre de membres]",
+      "histoire": "[À COMPLÉTER : histoire courte]",
+      "dateAccordEcrit": null,
+      "produitsCoBrandes": [],
+      "fournitSiteA": false
+    }
+  ],
+  "realisations": [
+    {
+      "id": "EXEMPLE-realisation-riad",
+      "client": "EXEMPLE- Riad fictif",
+      "descriptionAnonyme": "EXEMPLE- un riad de la médina de Fès",
+      "segment": "hotels",
+      "produits": [
+        "gel-douche-argan",
+        "shampoing-argan"
+      ],
+      "photos": [],
+      "dateAccordClient": null
+    }
+  ],
+  "photos": []
+}
