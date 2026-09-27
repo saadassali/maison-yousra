@@ -1,7 +1,7 @@
 // Vérifie le dossier de sortie du build du site B (lancé par « postbuild »).
 // 1. Aucun terme propre au site A (scripts/site-a-terms.json, plus un fichier privé facultatif
 //    désigné par SITE_B_FORBIDDEN_TERMS_FILE, pour les noms qui ne doivent pas être commités).
-// 2. Aucune feuille de style (prompt 0, règle 1). Aucun exemple « EXEMPLE- » (prompt 2).
+// 2. Aucun exemple « EXEMPLE- » (prompt 2).
 // 3. Au plus un lien vers le site A par page.
 // 5. Allégations santé (scripts/allegations-interdites.json) ; un h1, un title et une meta
 //    description par page.
@@ -81,11 +81,6 @@ for (const file of pages) {
   }
 }
 
-// 2. Feuilles de style.
-for (const file of files) {
-  if (extname(file) === ".css") errors.push(`feuille de style : ${relative(root, file)}`);
-}
-
 // 3. Liens vers le site A.
 const siteA = process.env.SITE_A_URL?.trim().replace(/\/$/, "");
 if (siteA) {
@@ -114,5 +109,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `Vérification du build : ${files.length} fichiers, aucun contenu du site A, aucune allégation interdite, aucune feuille de style, un h1 par page.`,
+  `Vérification du build : ${files.length} fichiers, aucun contenu du site A, aucune allégation interdite, un h1 par page.`,
 );

@@ -1,4 +1,4 @@
-import { Breadcrumb } from "../_components/breadcrumb";
+import { EnTete } from "../_components/en-tete";
 import { BRAND, COMPANY_NAME, ROUTES } from "../_site/config";
 import { pageMetadata } from "../_site/metadata";
 
@@ -14,8 +14,9 @@ export const metadata = pageMetadata({
 export default function ConfidentialitePage() {
   return (
     <>
-      <Breadcrumb page="confidentialite" />
-      <h1>Politique de confidentialité</h1>
+      <EnTete page="confidentialite" titre="Politique de confidentialité" />
+      <div className="cadre pb-20 md:pb-28">
+        <div className="texte-long">
       <p>
         Cette politique s’applique au site {BRAND}. Elle suit la loi marocaine n° 09-08 relative à
         la protection des personnes physiques à l’égard du traitement des données à caractère
@@ -131,6 +132,8 @@ export default function ConfidentialitePage() {
           refuser sans conséquence.
         </p>
       </section>
+        </div>
+      </div>
     </>
   );
 }
