@@ -19,7 +19,6 @@ export const configDevis = {
     return v ?? "developpement-seulement-ne-pas-utiliser-en-production";
   },
   w1: () => ({ url: lire("TWENTY_W1_WEBHOOK_URL"), secret: lire("TWENTY_W1_WEBHOOK_SECRET") }),
-  turnstileSecret: () => obligatoireEnProduction("TURNSTILE_SECRET_KEY"),
   expediteur: () => lire("QUOTE_FROM_EMAIL"),
   secours: () => lire("QUOTE_FALLBACK_EMAIL"),
   smtpUrl: () => lire("SMTP_URL"),

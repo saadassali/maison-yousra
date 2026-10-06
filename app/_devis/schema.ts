@@ -4,7 +4,7 @@ import { SEGMENTS_DEVIS } from "../_site/config";
 
 // Schéma du formulaire de devis (prompt 4), partagé par le navigateur et le serveur : la même
 // validation des deux côtés. Le serveur ajoute ce que le navigateur ne peut pas vérifier
-// (produits publiés, Turnstile, logo).
+// (produits publiés, logo).
 // Provisoire dans app/ : à remplacer par lib/forms/ quand il aura été recopié du site A.
 
 export const PRODUIT_INCONNU = "inconnu";

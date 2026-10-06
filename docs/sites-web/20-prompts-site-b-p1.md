@@ -125,7 +125,7 @@ recopiant les modules du site A, sans contenu définitif.
 8. Title (60 caractères au plus) et meta description fournis par chaque page.
 9. Variables d'environnement propres au site B : URL du site, adresse d'envoi
    devis@[domaine B], URL et secrets des webhooks W1 et W8 (identiques à ceux du site A ou
-   non : documente), clés anti-spam, stockage des logos et des maquettes.
+   non : documente), stockage des logos et des maquettes.
 
 # Critères d'acceptation
 - Le site B se construit seul, sans dépendre du dossier du site A ; les modules de lib/
@@ -258,7 +258,7 @@ l'envoie à Twenty. Référence : fichier 14 §8, fichier 16 §4 à §8, objets 
 - Cachés : page d'origine, segment, source (SEO par défaut ; QR_CODE, ETRADE_MA, SALON,
   PROSPECTION par paramètre d'URL), identifiant de QR code, paramètres UTM.
 - Case de consentement : « Votre demande est transmise sans vos coordonnées à des producteurs
-  partenaires. » + lien vers la confidentialité. Anti-spam : Turnstile et champ piège.
+  partenaires. » + lien vers la confidentialité. Anti-spam : champ piège.
 
 # Traitement côté serveur
 1. Validation identique côté client et côté serveur ; messages accessibles ; rien n'est perdu

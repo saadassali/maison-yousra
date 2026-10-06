@@ -122,9 +122,7 @@ export default function ConfidentialitePage() {
       <section aria-labelledby="cookies">
         <h2 id="cookies">Cookies</h2>
         <p>
-          Le site ne dépose aucun cookie publicitaire. Le formulaire de devis est protégé par
-          Cloudflare Turnstile, qui analyse des signaux techniques du navigateur pour distinguer
-          les personnes des robots.
+          Le site ne dépose aucun cookie publicitaire.
         </p>
         <p>
           Mesure d’audience : [À COMPLÉTER : outil retenu et cookies qu’il dépose]. Si elle dépose
