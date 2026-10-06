@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
 import { useActionState, useEffect, useId, useRef, useState, startTransition } from "react";
 import { FORMATS } from "../_content/schemas";
 import {
@@ -56,12 +55,10 @@ export type ParametresDevis = {
 export function FormulaireDevis({
   produits,
   parametres,
-  cleTurnstile,
   confidentialite,
 }: {
   produits: ProduitOption[];
   parametres: ParametresDevis;
-  cleTurnstile?: string;
   confidentialite: string;
 }) {
   const [segment, setSegment] = useState<SegmentDevis>(parametres.segment);
@@ -107,8 +104,6 @@ export function FormulaireDevis({
 
   return (
     <form action={formAction} onSubmit={soumettre} noValidate className="flex flex-col gap-10">
-      {cleTurnstile ? <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer /> : null}
-
       <div ref={resume} tabIndex={-1} role={message ? "alert" : undefined} className="outline-none">
         {message ? (
           <div className="rounded-[4px] border-2 border-[#a3261c] bg-lin p-4 text-[15px]">
@@ -373,10 +368,6 @@ export function FormulaireDevis({
           </span>
         </label>
         <Erreur id={`${idChamp("consentement")}-erreur`} message={erreurs.consentement} />
-        {cleTurnstile ? (
-          <div id={idChamp("turnstile")} className="cf-turnstile" data-sitekey={cleTurnstile} data-language="fr" />
-        ) : null}
-        <Erreur id={`${idChamp("turnstile")}-erreur`} message={erreurs.turnstile} />
         <button type="submit" disabled={enCours} className="bouton min-h-14 self-start px-8 text-[16px] disabled:opacity-60">
           {enCours ? "Envoi en cours…" : "Envoyer ma demande"}
         </button>

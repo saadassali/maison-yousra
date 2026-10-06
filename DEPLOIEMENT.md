@@ -34,7 +34,6 @@ Voir `.env.example`. Points à retenir :
   sont propres à chaque site, pour révoquer l'un sans couper l'autre : cela demande que le
   workflow accepte deux secrets, ou un webhook par site. [À COMPLÉTER : à trancher avec la
   configuration de W1 et W8 dans Twenty (fichier 18).]
-- Turnstile : un widget propre au site B (domaine B), distinct de celui du site A.
 - Stockage des logos et des maquettes : un espace privé propre au site B, jamais public.
 
 ## Séparation d'avec le site A

@@ -21,7 +21,7 @@ les prompts 1, 4 et 6 du fichier 19. En attendant, le site B utilise des équiva
 | Provisoire (site B) | Remplacé par |
 |---|---|
 | `app/_site/metadata.ts`, `app/_site/json-ld.tsx` | `lib/seo/` |
-| `app/_devis/schema.ts`, `turnstile.ts`, `envoi.ts` (W1, secours par e-mail) | `lib/forms/` |
+| `app/_devis/schema.ts`, `envoi.ts` (W1, secours par e-mail) | `lib/forms/` |
 | `app/_devis/twenty.ts` (lecture des offres) | `lib/twenty/` |
 | `app/_devis/fourchette.ts` (formule de prix) | `lib/quote/` ou `lib/twenty/`, selon le site A |
 

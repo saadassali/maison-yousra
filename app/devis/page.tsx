@@ -54,8 +54,6 @@ export default async function DevisPage({ searchParams }: PageProps<"/devis">) {
         <FormulaireDevis
           produits={produits}
           parametres={parametres}
-          // Clé de site Turnstile : publique par conception, lue à chaque requête.
-          cleTurnstile={process.env.TURNSTILE_SITE_KEY?.trim() || undefined}
           confidentialite={ROUTES.confidentialite.path}
         />
       </div>

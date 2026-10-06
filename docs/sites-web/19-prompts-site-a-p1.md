@@ -118,8 +118,8 @@ Créer le socle du site A, sans contenu définitif : structure, langues, SEO tec
 9. Metadonnées par page : title (60 caractères au plus) et meta description, dans les deux
    langues, fournis par la page elle-même.
 10. Variables d'environnement documentées dans un fichier d'exemple : URL du site, URL de
-    l'API Twenty, clé d'API, URL et secret de chaque webhook (W1, W5, W8, W10), clés
-    anti-spam, adresse e-mail de secours.
+    l'API Twenty, clé d'API, URL et secret de chaque webhook (W1, W5, W8, W10),
+    adresse e-mail de secours.
 
 # Critères d'acceptation
 - Le build passe ; chaque route P1 répond en EN et en FR avec un contenu provisoire.
@@ -269,7 +269,7 @@ objets Twenty du fichier 18.
   d'URL pour prospection, plateforme B2B, eTrade.ma, salon), paramètres UTM.
 - Case de consentement obligatoire, avec la mention : « Votre demande est transmise sans vos
   coordonnées à des producteurs partenaires. » + lien vers la confidentialité.
-- Protection anti-spam : Cloudflare Turnstile, vérifié côté serveur, plus un champ piège.
+- Protection anti-spam : un champ piège, vérifié côté serveur.
 
 # Traitement côté serveur
 1. Validation complète (mêmes règles côté client et côté serveur) ; messages d'erreur

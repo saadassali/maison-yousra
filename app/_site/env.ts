@@ -1,6 +1,6 @@
 import "server-only";
 
-// Variables publiques de configuration lues au rendu serveur. Les secrets (webhooks, Turnstile,
+// Variables publiques de configuration lues au rendu serveur. Les secrets (webhooks,
 // stockage) seront lus par les modules qui en ont besoin, jamais ici.
 
 function readUrl(name: string): string | undefined {

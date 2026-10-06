@@ -1,6 +1,5 @@
 "use server";
 
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { produitsPublies } from "../_content";
 import { configDevis } from "../_devis/config";
@@ -9,7 +8,6 @@ import { cheminFichier, creerJeton } from "../_devis/liens";
 import { deposerLogo, LogoRefuse } from "../_devis/logo";
 import { PRODUIT_INCONNU, lireFormulaire, validerDemande, type Demande, type Erreurs } from "../_devis/schema";
 import { transmettreDemande } from "../_devis/envoi";
-import { verifierTurnstile } from "../_devis/turnstile";
 import { lireOffresValides } from "../_devis/twenty";
 import { construireChargeW1 } from "../_devis/w1";
 import { FORMATS } from "../_content/schemas";
@@ -72,13 +70,6 @@ async function traiter(demande: Demande, fd: FormData): Promise<EtatDevis> {
     }
   });
   if (Object.keys(erreurs).length) return { erreurs, message: "Certains champs sont à corriger." };
-
-  const entetes = await headers();
-  const ip = entetes.get("cf-connecting-ip") ?? entetes.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null;
-  const jetonTurnstile = fd.get("cf-turnstile-response");
-  if (!(await verifierTurnstile(typeof jetonTurnstile === "string" ? jetonTurnstile : null, ip))) {
-    return { erreurs: { turnstile: "La vérification anti-robot a échoué. Réessayez." }, message: "La vérification anti-robot a échoué." };
-  }
 
   let lienLogo: string | null = null;
   const logo = fd.get("logo");
