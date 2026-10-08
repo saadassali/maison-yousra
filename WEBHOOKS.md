@@ -101,8 +101,8 @@ l'affiche au client. Sans référence, le site affiche une « référence d'envo
 ### En cas d'échec
 
 Réponse autre que 2xx, ou pas de réponse en 8 secondes : la demande complète part par e-mail
-(`SMTP_URL`, de `QUOTE_FROM_EMAIL` vers `QUOTE_FALLBACK_EMAIL`) et le client voit quand même la
-confirmation. Si l'e-mail échoue aussi, le client voit un message d'erreur, ses données restent
+(SMTP d'AWS SES, `SES_SAAD_MAIL_*`, de `QUOTE_FROM_EMAIL` vers `QUOTE_FALLBACK_EMAIL`) et le
+client voit quand même la confirmation. Si l'e-mail échoue aussi, le client voit un message d'erreur, ses données restent
 dans le formulaire. Le journal ne contient que `idEnvoi`, jamais de donnée personnelle.
 
 ## Liens privés (logos, maquettes)

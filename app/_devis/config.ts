@@ -21,7 +21,15 @@ export const configDevis = {
   w1: () => ({ url: lire("TWENTY_W1_WEBHOOK_URL"), secret: lire("TWENTY_W1_WEBHOOK_SECRET") }),
   expediteur: () => lire("QUOTE_FROM_EMAIL"),
   secours: () => lire("QUOTE_FALLBACK_EMAIL"),
-  smtpUrl: () => lire("SMTP_URL"),
+  /** Serveur SMTP d'AWS SES pour le secours par e-mail. Absent : pas de secours. */
+  smtp: () => {
+    const host = lire("SES_SAAD_MAIL_HOST");
+    const user = lire("SES_SAAD_MAIL_ACCES_KEY");
+    const pass = lire("SES_SAAD_MAIL_SECRET_ACCES_KEY");
+    if (!host || !user || !pass) return undefined;
+    const port = Number(lire("SES_SAAD_MAIL_PORT") ?? 587);
+    return { host, port, user, pass };
+  },
   twenty: () => ({ url: lire("TWENTY_API_URL"), cle: lire("TWENTY_API_KEY") }),
   /** Frais fixes d'un lot, en MAD, pour la formule de prix (fichier 16 §5). Absent : pas de fourchette. */
   fraisLotMad: () => {

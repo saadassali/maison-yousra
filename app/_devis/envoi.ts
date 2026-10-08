@@ -52,7 +52,7 @@ function texteEmail(charge: ChargeW1): string {
 }
 
 async function envoyerEmailSecours(charge: ChargeW1): Promise<boolean> {
-  const smtp = configDevis.smtpUrl();
+  const smtp = configDevis.smtp();
   const de = configDevis.expediteur();
   const a = configDevis.secours();
   if (!smtp || !de || !a) {
@@ -60,12 +60,19 @@ async function envoyerEmailSecours(charge: ChargeW1): Promise<boolean> {
     return false;
   }
   try {
-    await nodemailer.createTransport(smtp).sendMail({
-      from: de,
-      to: a,
-      subject: `[Secours W1] Demande de devis ${charge.idEnvoi} — ${charge.segment}`,
-      text: texteEmail(charge),
-    });
+    await nodemailer
+      .createTransport({
+        host: smtp.host,
+        port: smtp.port,
+        secure: smtp.port === 465, // 465 : TLS implicite ; 587 : STARTTLS
+        auth: { user: smtp.user, pass: smtp.pass },
+      })
+      .sendMail({
+        from: de,
+        to: a,
+        subject: `[Secours W1] Demande de devis ${charge.idEnvoi} — ${charge.segment}`,
+        text: texteEmail(charge),
+      });
     return true;
   } catch {
     console.error(`[devis] Secours par e-mail en échec (envoi ${charge.idEnvoi}).`);

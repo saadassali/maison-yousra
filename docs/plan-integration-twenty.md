@@ -150,9 +150,9 @@ vérifie sur son propre contenu ; W13 le vérifie dans Twenty. Il faut qu'ils di
 
 - [ ] Variables Cloudflare : `SITE_URL`, `SITE_A_URL`, `TWENTY_API_URL=https://algosoft-crm.com`,
       `TWENTY_API_KEY` (clé « Site B »), URL W1 et W8, `DEVIS_FRAIS_LOT_MAD`, Turnstile (widget du
-      domaine B), `LIENS_SECRET`, stockage R2 privé, SMTP Zoho (`devis@maisonyousra.com`).
+      domaine B), `LIENS_SECRET`, stockage R2 privé, SMTP AWS SES (`SES_SAAD_MAIL_*`, expéditeur `devis@maisonyousra.ma`).
 - [ ] Activer les workflows avec le site A (fichier 23 §11), après le branchement de la boîte
-      Zoho et le test des alias `devis@maisonyousra.com` et `contact@maisonyousra.com`.
+      Zoho et le test des alias `devis@maisonyousra.ma` et `contact@maisonyousra.ma`.
 - [ ] **Surveillance** : Twenty répond 200 avant d'exécuter W1, donc un échec du workflow ne
       déclenche pas l'e-mail de secours. Chaque lundi, lister les exécutions en échec de W1 et W8.
 - [ ] `scripts/check-build.mjs` : ajouter au fichier privé `SITE_B_FORBIDDEN_TERMS_FILE` les noms
